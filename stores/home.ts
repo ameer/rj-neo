@@ -1,5 +1,5 @@
 // const delay = (t: number) => new Promise((r) => setTimeout(r, t));
-import { HomeSections, SectionItem } from "~/schema/models";
+import { SectionItem } from "~/schema/models";
 export const useHome = defineStore("home", {
   state: () => ({
     sections: [] as SectionItem[],

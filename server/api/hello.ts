@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let config = {
+const config = {
   method: "get",
   maxBodyLength: Infinity,
   url: "https://play.radiojavan.com/api/p/home_items?v=2",
@@ -22,7 +22,7 @@ let config = {
   },
 };
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(() => {
   return axios
     .request(config)
     .then((response) => {

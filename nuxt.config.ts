@@ -10,8 +10,15 @@ export default defineNuxtConfig({
   //     );
   //   },
   // ],
+  build: { transpile: ["swiper"] },
   devtools: { enabled: true },
-
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => {
+        return tag.startsWith("swiper-");
+      },
+    },
+  },
   modules: ["vuetify-nuxt-module", "@pinia/nuxt", "@nuxtjs/eslint-module"],
   imports: {
     dirs: ["./stores"],

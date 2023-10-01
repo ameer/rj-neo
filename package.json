@@ -24,6 +24,8 @@
     "vue": "latest"
   },
   "dependencies": {
-    "pinia": "^2.1.6"
+    "howler": "^2.2.4",
+    "pinia": "^2.1.6",
+    "swiper": "^10.3.1"
   }
 }
