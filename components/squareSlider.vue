@@ -9,7 +9,7 @@
                     :gradient="`to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%`" aspect-ratio="1" :alt="item.title"
                     :title="item.title">
                     <template #error>
-                        <v-img class="mx-auto" aspect-ratio="1" src="fallback.jpg" />
+                        <v-img class="mx-auto" aspect-ratio="1" src="/fallback.jpg" />
                     </template>
                 </v-img>
                 <v-card-actions>
