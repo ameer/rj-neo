@@ -6,16 +6,7 @@ export interface Todo {
 export interface Meta {
   totalCount: number;
 }
-export interface HomeSections {
-  sections: SectionItem[];
-}
-export interface SectionItem {
-  id: string;
-  type: string;
-  title: string;
-  show_link: false;
-  items?: PlaylistItem[];
-}
+
 export interface PlaylistItem {
   id: string;
   title: string;
@@ -38,6 +29,17 @@ export interface PlaylistItem {
   created_by: string;
   created_title: string;
   myplaylist: false;
+}
+
+export interface SectionItem {
+  id: string;
+  type: string;
+  title: string;
+  show_link: false;
+  items: PlaylistItem[];
+}
+export interface HomeSections {
+  sections: SectionItem[];
 }
 export interface Playlist {
   id: string;

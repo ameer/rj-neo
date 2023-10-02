@@ -2,50 +2,56 @@
 <template>
   <VContainer>
     <VRow>
-      <v-col cols="12">{{ home.sections[1]?.id }}</v-col>
-      <VCol :cols="12">
-        <swiper-container :init="false" id="top" ref="swiperEl">
-            <swiper-slide v-for="item in home.sections[1]?.items" :key="item.id">
-              <v-card>
-                <v-img cover :src="item.photo" class="align-end" aspect-ratio="1">
-                </v-img>
-              </v-card>
-            </swiper-slide>
-          </swiper-container>
+      <VCol
+        v-for="(section, i) in home.sections"
+        :key="`home-section-${i}`"
+        :cols="12"
+      >
+        <span
+          v-if="section.type === 'header'"
+          class="text-h5 font-weight-bold"
+          v-text="section.title"
+        />
+        <SquareSlider
+          v-else-if="
+            section.type === 'slider_square' && section.id !== 'home_music'
+          "
+          :swiper-id="section.id"
+          :items="section.items"
+        />
       </VCol>
     </VRow>
   </VContainer>
 </template>
+<!--
+  [
+    "header",
+    "slider_square",
+    "header",
+    "slider",
+    "slider",
+    "header",
+    "selfies",
+    "header",
+    "grid",
+    "header",
+    "slider_square",
+    "header",
+    "recently_played",
+    "header",
+    "slider_square",
+    "header",
+    "slider_square",
+    "header",
+    "slider_square",
+    "header",
+    "slider_square"
+]
+ -->
 <script setup lang="ts">
-
-
-const home = useHome();
-const { fetchHome } = home;
-const swiperEl = ref<HTMLElement | null>(null)
-fetchHome();
+const home = useHome()
+const { fetchHome } = home
 onMounted(() => {
-  const swiperParams = {
-    slidesPerView: 2.5,
-    spaceBetween: 15,
-    breakpoints: {
-      640: {
-        slidesPerView: 3.5,
-      },
-      1024: {
-        slidesPerView: 6.5,
-        spaceBetween: 30,
-      },
-    },
-    on: {
-      init() {
-        console.log('Init');
-        
-      },
-    },
-  };
-
-  // now we need to assign all parameters to Swiper element
-  Object.assign(swiperEl.value, swiperParams);
-  swiperEl.value.initialize()
-});
+  fetchHome()
+})
 </script>

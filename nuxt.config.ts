@@ -10,25 +10,26 @@ export default defineNuxtConfig({
   //     );
   //   },
   // ],
+  css: ['@/assets/css/app.css'],
   nitro: {
-    preset: "netlify",
+    preset: 'netlify'
   },
-  ssr: true,
-  build: { transpile: ["swiper"] },
+  // ssr: true,
+  build: { transpile: ['swiper'] },
   devtools: { enabled: true },
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => {
-        return tag.startsWith("swiper-");
-      },
-    },
+        return tag.startsWith('swiper-')
+      }
+    }
   },
-  modules: ["vuetify-nuxt-module", "@pinia/nuxt", "@nuxtjs/eslint-module"],
+  modules: ['vuetify-nuxt-module', '@pinia/nuxt', '@nuxtjs/eslint-module'],
   imports: {
-    dirs: ["./stores"],
+    dirs: ['./stores']
   },
 
   pinia: {
-    autoImports: ["defineStore", "acceptHMRUpdate"],
-  },
-});
+    autoImports: ['defineStore', 'acceptHMRUpdate']
+  }
+})
