@@ -10,6 +10,10 @@ export default defineNuxtConfig({
   //     );
   //   },
   // ],
+  nitro: {
+    preset: "netlify",
+  },
+  ssr: true,
   build: { transpile: ["swiper"] },
   devtools: { enabled: true },
   vue: {

@@ -2,6 +2,7 @@
 <template>
   <VContainer>
     <VRow>
+      <v-col cols="12">{{ home.sections[1]?.id }}</v-col>
       <VCol :cols="12">
         <swiper-container :init="false" id="top" ref="swiperEl">
             <swiper-slide v-for="item in home.sections[1]?.items" :key="item.id">
@@ -21,8 +22,8 @@
 const home = useHome();
 const { fetchHome } = home;
 const swiperEl = ref<HTMLElement | null>(null)
+fetchHome();
 onMounted(() => {
-  fetchHome();
   const swiperParams = {
     slidesPerView: 2.5,
     spaceBetween: 15,
