@@ -3,7 +3,7 @@ import axios from 'axios'
 const config = {
   method: 'get',
   maxBodyLength: Infinity,
-  url: 'https://play.radiojavan.com/api/p/home_items?v=2',
+  url: 'https://play.radiojavan.com/api/p/mp3_playlist_with_items?id=',
   headers: {
     'sec-ch-ua':
       '"Microsoft Edge";v="117", "Not;A=Brand";v="8", "Chromium";v="117"',
@@ -22,11 +22,13 @@ const config = {
   }
 }
 
-export default defineEventHandler(() => {
+export default defineEventHandler((event) => {
+  const id = getRouterParam(event, 'id')
+  config.url = config.url + id
   return axios
     .request(config)
     .then((response) => {
-      return JSON.stringify(response.data)
+      return response.data
     })
     .catch((error) => {
       return error
