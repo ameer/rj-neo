@@ -27,14 +27,18 @@
 <script setup lang="ts">
 import { ComponentPublicInstance } from 'nuxt/dist/app/compat/capi'
 import { PlaylistItem } from '~/schema/models'
+import { usePlayer } from '~/stores/player'
 const props = defineProps({
   swiperId: { type: String, required: true },
   items: { type: Array as PropType<Array<PlaylistItem>>, required: true }
 })
+const player = usePlayer()
+const { setCurrentPlaylist } = player
+
 const swiperEl = ref<Element | ComponentPublicInstance | null>(null)
 const getPlaylist = (playlistId: string) => {
   $fetch(`/api/playlists/${playlistId}`).then((resp) => {
-    emit(resp)
+    setCurrentPlaylist(resp)
   })
 }
 onMounted(() => {

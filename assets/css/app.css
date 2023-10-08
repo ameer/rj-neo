@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   box-sizing: border-box;
 }
-.v-slider-thumb .v-slider-thumb__ripple {
+/* .v-slider-thumb .v-slider-thumb__ripple {
   display: none;
 }
 .v-slider-thumb .v-slider-thumb__surface,
@@ -17,4 +17,4 @@
 .v-slider-thumb.v-slider-thumb--pressed .v-slider-thumb__surface {
   opacity: 1;
   visibility: visible;
-}
+} */

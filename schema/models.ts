@@ -41,30 +41,7 @@ export interface SectionItem {
 export interface HomeSections {
   sections: SectionItem[];
 }
-export interface Playlist {
-  id: string;
-  title: string;
-  items_count: number;
-  created_at: string;
-  type: string;
-  subtype: string;
-  share_link: string;
-  count: number;
-  followers: number;
-  public: boolean;
-  last_updated_at: string;
-  bg_color: string;
-  custom_photo: boolean;
-  bg_colors: string;
-  desc: string;
-  photo: string;
-  thumbnail: string;
-  photo_player: string;
-  created_by: string;
-  created_title: string;
-  myplaylist: boolean;
-  items: Song[];
-}
+
 export interface Song {
   id: number;
   title: string;
@@ -99,4 +76,28 @@ export interface Song {
   video_item: object;
   item: number;
   related: [];
+}
+export interface Playlist {
+  id: string;
+  title: string;
+  items_count: number;
+  created_at: string;
+  type: string;
+  subtype: string;
+  share_link: string;
+  count: number;
+  followers: number;
+  public: boolean;
+  last_updated_at: string;
+  bg_color: string;
+  custom_photo: boolean;
+  bg_colors: string;
+  desc: string;
+  photo: string;
+  thumbnail: string;
+  photo_player: string;
+  created_by: string;
+  created_title: string;
+  myplaylist: boolean;
+  items: Song[];
 }
